@@ -1,7 +1,6 @@
 import math
 
 class TDVector():
-
     def __init__(self, xComp, yComp):
         self.xComp = xComp
         self.yComp = yComp
@@ -39,5 +38,4 @@ class TDVector():
 
 def difference(Vec1, Vec2):
     return TDVector(Vec1.xComp - Vec2.xComp, Vec1.yComp - Vec2.yComp)
-
 

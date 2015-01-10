@@ -5,9 +5,7 @@ import tdvector
 import network
 
 class Example(QtGui.QWidget):
-
     def __init__(self, net, scaleChoice = True):
-
         super(Example, self).__init__()
         self.net = net
         self.height = 800
@@ -23,26 +21,21 @@ class Example(QtGui.QWidget):
         self.scaleChoice = scaleChoice
         self.interval = 1
         self.timer = QtCore.QBasicTimer()
-        self.timer.start(17, self)
         self.setGeometry(0, 0, self.width, self.height)
         self.setWindowTitle('Network')
         self.selection = 0
         self.show()
+        self.timer.start(17, self)
 
     def paintEvent(self, event):
-
             painter = QtGui.QPainter()
             painter.begin(self)
-
             if self.scaleChoice:
                 self.scaler()
-
             self.drawNetwork(painter)
-
             painter.end()
 
     def timerEvent(self, event):
-
         if not self.pause:
             for i in range(self.interval):
                 self.net.calculateForce()
@@ -50,7 +43,6 @@ class Example(QtGui.QWidget):
         self.update()
 
     def keyPressEvent(self, event):
-
         if event.key() == QtCore.Qt.Key_F2:
             self.net.timeStep *= 2.0
         elif event.key() == QtCore.Qt.Key_F1:
@@ -70,7 +62,7 @@ class Example(QtGui.QWidget):
             self.net.repelFactor *= 2.0
         elif event.key() == QtCore.Qt.Key_F7:
             self.net.repelFactor /= 2.0
-        elif event.key() == QtCore.Qt.Key_F12:
+        elif event.key() == QtCore.Qt.Key_Return:
             self.pause = not self.pause
         elif event.key() == QtCore.Qt.Key_Left:
             self.net.nodes[self.selection].position.xComp -= 20.0 * self.scale
@@ -95,7 +87,6 @@ class Example(QtGui.QWidget):
 
     def scaler(self):
         maxval = 0
-
         for i in self.net.nodes:
             if abs(i.position.xComp) > maxval:
                 maxval = abs(i.position.xComp)
@@ -106,13 +97,10 @@ class Example(QtGui.QWidget):
             self.scale = maxval / 300
 
     def drawNetwork(self, painter):
-
         painter.fillRect(0, 0, self.width, self.height, QtGui.QColor(0,0,0))
-
+        painter.setPen(QColor(75, 75, 75))
         self.drawLines(painter)
-
         for i in self.net.nodes:
-
             x = i.position.xComp/self.scale
             y = i.position.yComp/self.scale
             if i != self.net.nodes[self.selection]:

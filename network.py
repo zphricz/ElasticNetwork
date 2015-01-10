@@ -5,9 +5,7 @@ import node
 import tdvector
 
 class Network():
-
     def __init__(self, timeStep = 4.0):
-
             self.nodes = []
             self.connections = []
             self.timeStep = timeStep
@@ -23,11 +21,9 @@ class Network():
         node1.connect(node2)
 
     def calculateForce(self):
-
         i = 0
         for inode in self.nodes[:-1]:
             for jnode in self.nodes[i+1:]:
-
                 deltaPos = tdvector.difference(jnode.position, inode.position)
                 theta = deltaPos.angle()
                 forceMag = (self.repelFactor / deltaPos.magnitudeSquare())
@@ -43,7 +39,6 @@ class Network():
             forceMag = deltaPos.magnitude() * self.attractFactor
             forceVec = tdvector.TDVector(forceMag * math.cos(theta),
                                          forceMag * math.sin(theta))
-
             connection[0].forceSum.add(forceVec)
             connection[1].forceSum.subtract(forceVec)
 

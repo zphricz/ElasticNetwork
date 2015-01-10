@@ -40,3 +40,4 @@ class Node():
                 temp.append(node)
         for node in temp:
             node.setMainConnection(alreadySet)
+
