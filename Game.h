@@ -4,18 +4,21 @@
 #include "Network.h"
 #include "Screen.h"
 
+enum class CenterType {AVERAGE_POSITION, BOUNDS};
+enum class ScaleType {NO_SCALE, SCALE, MAX_SCALE};
+
 class Game {
     private:
         Network net; 
         Screen* scr;
-        Vec2 center;
-        double scale; // A scaling factor for drawing in units (meters per pixel)
-        double max_scale;
+        Vec2f center;
+        float scale; // A scaling factor for drawing in units (meters per pixel)
+        float max_scale;
         bool simulate;
         bool running;
-        enum {AVERAGE_POSITION, BOUNDS} center_option;
-        enum {NO_SCALE, SCALE, MAX_SCALE} scale_option;
-        double time_step;
+        CenterType center_option;
+        ScaleType scale_option;
+        float time_step;
         int steps_per_frame;
         int selected_node;
 

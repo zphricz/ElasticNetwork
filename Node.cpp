@@ -2,8 +2,10 @@
 
 using namespace std;
 
-Node::Node(double x_pos, double y_pos) :
+Node::Node(float x_pos, float y_pos) :
     pos(x_pos, y_pos),
+    vel(0.0, 0.0),
+    force(0.0, 0.0),
     main_connection(false) {
 }
 
@@ -44,17 +46,13 @@ void Node::set_main_connection(vector<Node*>& already_set) {
     }
 }
 
-#include <assert.h>
 void Node::disconnect(Node* other) {
     unsigned int i;
-    bool found = false;
     for (i = 0; i < connections.size(); ++i) {
         if (connections[i] == other) {
-            found = true;
             break;
         }
     }
-    assert(found);
     connections.erase(connections.begin() + i);
 }
 

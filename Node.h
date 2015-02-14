@@ -1,7 +1,7 @@
 #ifndef NODE_H
 #define NODE_H
 
-#include "Vec2.h"
+#include "Vec.h"
 
 #include <vector>
 
@@ -9,13 +9,13 @@ class Node {
     friend class Network;
     friend class Game;
     private:
-        Vec2 pos;
-        Vec2 vel;
-        Vec2 force;
+        Vec2f pos;
+        Vec2f vel;
+        Vec2f force;
         std::vector<Node*> connections;
         bool main_connection;
     public:
-        Node(double x_pos, double y_pos);
+        Node(float x_pos, float y_pos);
         ~Node();
 
         void connect(Node* other);
