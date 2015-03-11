@@ -2,8 +2,8 @@
 #include <cmath>
 #include "Network.h"
 
-using std::vector;
-using std::max;
+using namespace Linear;
+using namespace std;
 
 Network::Network() {
 }

@@ -38,8 +38,8 @@ int main(int argc, char* argv[]) {
         full_screen = false;
     }
 
-    Screen scr(screen_width, screen_height, full_screen, "Elastic Network",
-               true, true);
+    SoftScreen scr(screen_width, screen_height, "Elastic Network", full_screen,
+                   true);
     Game g(&scr);
     g.run();
     return 0;

@@ -10,8 +10,8 @@ enum class ScaleType {NO_SCALE, SCALE, MAX_SCALE};
 class Game {
     private:
         Network net; 
-        Screen* scr;
-        Vec2f center;
+        SoftScreen* scr;
+        Linear::Vec2f center;
         float scale; // A scaling factor for drawing in units (meters per pixel)
         float max_scale;
         bool simulate;
@@ -26,7 +26,7 @@ class Game {
         void set_scale_variables();
         void draw_network();
     public:
-        Game(Screen* scr);
+        Game(SoftScreen* scr);
         ~Game();
         void run();
 };

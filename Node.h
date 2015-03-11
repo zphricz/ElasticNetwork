@@ -9,9 +9,9 @@ class Node {
     friend class Network;
     friend class Game;
     private:
-        Vec2f pos;
-        Vec2f vel;
-        Vec2f force;
+        Linear::Vec2f pos;
+        Linear::Vec2f vel;
+        Linear::Vec2f force;
         std::vector<Node*> connections;
         bool main_connection;
     public:

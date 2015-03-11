@@ -3,3 +3,4 @@
 - Make the damp factor's value range much nicer to play with
 - Fix memory leaks with Nodes that are never freed
 - Fix bug where delete Nodes still have connections drawn to them
+- Fix how input is handled
